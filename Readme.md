@@ -2,8 +2,11 @@
 
 A humble `<table>` for React. 
 
-Explore [demo](https://github.com/polmoneys)
+Explore [demo](https://polmoneys.github.io/react-table/)
 
+### Documentation
+
+Coming soon...
 
 ### Inspiration 💐
 
