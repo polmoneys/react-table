@@ -18,7 +18,7 @@ function RowCell(props: Props): JSX.Element {
       </th>
     )
   return (
-    <td aria-labelledby={labelledby} style={{ minWidth: width }}>
+    <td aria-labelledby={labelledby} style={{ minWidth: width }} id={id}>
       {children}
     </td>
   )

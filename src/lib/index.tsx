@@ -9,8 +9,9 @@ import CellResize from './CellResize'
 import CellStart from './CellStart'
 import CellEnd from './CellEnd'
 import { IconHandle } from './Icon/Icon'
-import { classes, initialOptions, isDisabled } from './utils'
+import { classes, initialOptions, isRowInsideRect, isDisabled } from './utils'
 import './index.css'
+import SelectionRect, { type RectCoordinates } from './Rect'
 
 function Table<T extends TableRow>(props: Props<T>): JSX.Element {
   const {
@@ -29,6 +30,8 @@ function Table<T extends TableRow>(props: Props<T>): JSX.Element {
     end,
     selections = initialOptions.selections,
     onChangeCell,
+    canRectSelect = true,
+    onRectSelect,
   } = props
 
   const [columnOrder, setOrder] = useState<string[]>(
@@ -195,6 +198,7 @@ function Table<T extends TableRow>(props: Props<T>): JSX.Element {
                 rowPosition={pos}
                 columns={columns}
                 row={row}
+                id={`table-row-${pos}`}
                 columnWidths={columnWidths}
                 variant={variant}
                 start={start}
@@ -206,6 +210,27 @@ function Table<T extends TableRow>(props: Props<T>): JSX.Element {
           })}
         </tbody>
       </table>
+      {canRectSelect && (
+        <SelectionRect
+          onSelectionEnd={rect => {
+            if (rect != null) {
+              const selectedRows: T[] = []
+              rows.forEach((row, rowIndex) => {
+                const rowElement = document.getElementById(
+                  `table-row-${rowIndex}`,
+                )
+                if (rowElement != null) {
+                  const rowRect = rowElement.getBoundingClientRect()
+                  if (isRowInsideRect(rowRect, rect)) {
+                    selectedRows.push(row)
+                  }
+                }
+              })
+              onRectSelect?.(selectedRows)
+            }
+          }}
+        />
+      )}
     </div>
   )
 }

@@ -74,7 +74,7 @@ function Row<T extends TableRow>(props: Props<T>): JSX.Element {
           return (
             <RowCell
               width={columnWidths[pos]}
-              id={rowId}
+              id={isFirstCell ? rowId : `cell-${rowPosition}-${pos}`}
               isFirstCell={isFirstCell}
               {...(!isFirstCell && {
                 labelledby: `${rowId} ${column.id}`,

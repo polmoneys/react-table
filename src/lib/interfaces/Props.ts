@@ -25,6 +25,8 @@ export interface TableProps<T extends TableRow>
   defaultColumnWidth?: number
   maxResizeWidth?: number
   selections?: Set<string>
+  canRectSelect?: boolean
+  onRectSelect?: (selections: T[]) => void
 }
 
 export interface TableRowProps<T extends TableRow> extends PropsDrill<T> {
