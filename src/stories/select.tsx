@@ -46,10 +46,6 @@ export default function Distance(props: Props): JSX.Element {
   return (
     <Table
       selections={selectedRows}
-      canRectSelect
-      onRectSelect={s => {
-        console.log({ s })
-      }}
       enableReorder
       enableResize
       variant="select"

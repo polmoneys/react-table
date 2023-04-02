@@ -51,6 +51,10 @@ function Stories(props: Props): JSX.Element {
       columns={columns}
       rows={sorted}
       sort={sort}
+      canRectSelect
+      onRectSelect={s => {
+        console.log({ s })
+      }}
       onSort={(id: string, direction: SortDirection) => {
         setSort({
           id,
