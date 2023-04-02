@@ -40,7 +40,7 @@ interface Props {
   transforms?: string
 }
 
-function Shape(props: Props) {
+function Shape(props: Props): JSX.Element {
   const { sides = 3, size = 69, fill = 'currentColor', transforms } = props
 
   const polyPath = useMemo(() => {
@@ -57,7 +57,7 @@ function Shape(props: Props) {
       width={size}
       height={size}
       fill={fill}
-      {...(transforms && { style: { transform: transforms } })}
+      {...(transforms !== undefined && { style: { transform: transforms } })}
     >
       <path d={polyPath} />
     </svg>

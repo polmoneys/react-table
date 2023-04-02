@@ -1,10 +1,4 @@
-import {
-  type Dispatch,
-  type SetStateAction,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import { type Dispatch, type SetStateAction, useMemo, useState } from 'react'
 import { useControls, folder, button } from 'leva'
 import { genericSort, useChips, type Variants } from './utils'
 import Table from '@/lib'
@@ -20,19 +14,7 @@ interface Props {
 export default function Distance(props: Props): JSX.Element {
   const { setter, films, columns } = props
 
-  const { cards } = useControls({
-    items: folder(
-      {
-        cards: {
-          label: 'Amount',
-          min: 6,
-          max: 25,
-          step: 1,
-          value: 12,
-        },
-      },
-      { color: 'yellow' },
-    ),
+  useControls({
     demos: folder(
       {
         default: button(get => {
@@ -64,6 +46,10 @@ export default function Distance(props: Props): JSX.Element {
   return (
     <Table
       selections={selectedRows}
+      canRectSelect
+      onRectSelect={s => {
+        console.log({ s })
+      }}
       enableReorder
       enableResize
       variant="select"
