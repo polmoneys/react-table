@@ -30,7 +30,7 @@ function Table<T extends TableRow>(props: Props<T>): JSX.Element {
     end,
     selections = initialOptions.selections,
     onChangeCell,
-    canRectSelect = true,
+    canRectSelect = false,
     onRectSelect,
   } = props
 
