@@ -144,7 +144,7 @@ function Table<T extends TableRow>(props: Props<T>): JSX.Element {
                   sort={sort}
                   onSort={() => {
                     if (!canSort) return
-                    onSort(headColumn.id, oppositeSortDirection)
+                    onSort?.(headColumn.id, oppositeSortDirection)
                   }}
                   width={columnWidths[pos]}
                   isFirstCell={isFirstCell}

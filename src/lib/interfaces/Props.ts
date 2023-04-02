@@ -18,7 +18,7 @@ export interface TableProps<T extends TableRow>
   label: string
   rows: T[]
   sort: SorterInterface
-  onSort: (id: string, dir: SortDirection) => void
+  onSort?: (id: string, dir: SortDirection) => void
   enableReorder?: boolean
   enableResize?: boolean
   firstColumnWidth?: number
