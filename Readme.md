@@ -2,11 +2,13 @@
 
 A humble `<table>` for React. 
 
-Explore [demo](https://polmoneys.github.io/react-table/)
+Play with [demo](https://polmoneys.github.io/react-table/)
 
-### Documentation
+### Table
 
-Coming soon...
+Exploring advanced interactions on table, like expanding rows, resize and reorder columns, selecting rows by drawing a rectange...
+
+For now check **src/stories/** for how-to code. 
 
 ### Inspiration 💐
 
